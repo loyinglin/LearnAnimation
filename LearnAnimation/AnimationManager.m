@@ -67,7 +67,7 @@ static NSDictionary* classNameDict;
 #pragma mark - delegate
 
 - (void)onAnimationEndWithView:(id<BaseAnimation>)view {
-    NSLog(@"%@ end", view);
+//    NSLog(@"%@ end", view);
 }
 
 

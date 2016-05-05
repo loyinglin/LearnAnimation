@@ -52,11 +52,11 @@ static NSArray<UIImage *>* gExplosionFramesArray;          //爆炸帧图片
 @implementation AnimationFireworksView
 
 + (void)load {
-    NSLog(@"load");
+    
 }
 
 + (void)initialize {
-    NSLog(@"initisalize");
+    
     
     // 1
     NSMutableArray* imagesArr = [NSMutableArray array];
@@ -100,6 +100,10 @@ static NSArray<UIImage *>* gExplosionFramesArray;          //爆炸帧图片
     }
     gHeartFramesArray = imagesArr;
     
+}
+
+- (void)dealloc {
+//    NSLog(@"dealloc");
 }
 
 - (instancetype)init {
@@ -156,7 +160,9 @@ static NSArray<UIImage *>* gExplosionFramesArray;          //爆炸帧图片
         [self playHeart];
         
         // FINISH
+        ESWeakSelf
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(const_explosion_time * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            ESStrongSelf
             for (UIImageView* imageView in self.mExplosionImageViewsArray) {
                 [imageView setImage:nil];
                 [imageView removeFromSuperview];

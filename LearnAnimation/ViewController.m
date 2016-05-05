@@ -101,9 +101,7 @@
         [UIView animateWithDuration:1.6 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
             self.mBounceImageView.alpha = 1.0;
         } completion:^(BOOL finished) {
-            
             [self.mBounceImageView setImage:nil];
-            NSLog(@"2complete");
         }];
         
     });
@@ -111,7 +109,7 @@
 
 
 - (IBAction)onKeyFrameAnimation:(id)sender {
-//    [[AnimationManager instance] startAnimationWithView:self.mAnimationView Type:LYAnimationBoat];
+    [[AnimationManager instance] startAnimationWithView:self.mAnimationView Type:LYAnimationFireworks];
     
     UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds) - 200, CGRectGetWidth(self.view.bounds), 200)];
     [self.view addSubview:view];

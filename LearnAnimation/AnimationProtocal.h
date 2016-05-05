@@ -9,6 +9,15 @@
 #ifndef AnimationProtocal_h
 #define AnimationProtocal_h
 
+#define ESWeak_(var, weakVar)                   __weak __typeof(&*var) weakVar = var;
+#define ESWeak(var)                             ESWeak_(var, weak_##var);
+#define ESWeakSelf                              ESWeak(self);
+
+#define ESStrong_DoNotCheckNil(weakVar, var)    __typeof(&*weakVar) var = weakVar;
+#define ESStrong_(weakVar, var)                 ESStrong_DoNotCheckNil(weakVar, var); if (!var) return;
+#define ESStrong(var)                           ESStrong_(weak_##var, _##var);
+#define ESStrongSelf                            ESStrong(self);
+
 
 #import <Foundation/Foundation.h>
 
