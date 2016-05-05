@@ -7,22 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AnimationProtocal.h"
 
-typedef NS_ENUM(NSUInteger, LYAnimationStatus) {
-    LYAnimationNotStart,
-    LYAnimationPlaying,
-    LYAnimationEnd,
-};
+@interface AnimationFireworksView : UIView <BaseAnimation>
 
-typedef NS_ENUM(NSUInteger, LYAnimationFireworksColor) {
-    LYAnimationFireworksGreen,
-    LYAnimationFireworksRed,
-    LYAnimationFireworksYellow,
-    LYAnimationFireworksBlue,
-};
 
-@interface AnimationFireworksView : UIView
-
-- (void)play;
 
 @end

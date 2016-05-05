@@ -49,7 +49,7 @@
                                     <action selector="onKeyFrameAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uZs-3h-0dl"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GM3-hj-sQ8" customClass="AnimationFireworksView">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GM3-hj-sQ8" customClass="AnimationBoatView">
                                 <rect key="frame" x="37" y="315" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -68,7 +68,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="mAnimationFireworksView" destination="GM3-hj-sQ8" id="4qC-FK-pAH"/>
+                        <outlet property="mAnimationView" destination="GM3-hj-sQ8" id="leF-Ik-bWH"/>
                         <outlet property="mBounceImageView" destination="Yqz-Ik-Ac3" id="65j-lX-Qvo"/>
                         <outlet property="myImageView" destination="9ju-L3-2R8" id="iI5-3X-XFQ"/>
                     </connections>
