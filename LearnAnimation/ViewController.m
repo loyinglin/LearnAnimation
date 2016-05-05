@@ -14,7 +14,7 @@
 @property (nonatomic , strong) IBOutlet UIImageView* myImageView;
 @property (nonatomic , strong) IBOutlet UIImageView* mBounceImageView;
 
-@property (nonatomic , strong) AnimationFireworksView* mAnimationFireworksView;
+@property (nonatomic , strong) IBOutlet AnimationFireworksView* mAnimationFireworksView;
 
 @end
 
@@ -23,8 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.mAnimationFireworksView = [[AnimationFireworksView alloc] initWithFrame:CGRectMake(100, 100, 200, 200)];
-    [self.view addSubview:self.mAnimationFireworksView];
+//    self.mAnimationFireworksView = [[AnimationFireworksView alloc] initWithFrame:CGRectMake(100, 100, 200, 200)];
+//    [self.view addSubview:self.mAnimationFireworksView];
 }
 
 - (void)didReceiveMemoryWarning {
