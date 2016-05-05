@@ -22,6 +22,7 @@
 
 
 
+
 @implementation AnimationBoatView
 
 static UIImage* gWaveFrameImage;
@@ -30,8 +31,8 @@ static UIImage* gShadowFrameImage;
 
 #define const_position_boat_x 1538
 #define const_position_boat_width 622
-#define const_boat_size_rate 0.8
 #define const_shadow_height_rate 0.7
+#define const_boat_height 380
 
 + (void)initialize {
     UIImage* sourceImage = [UIImage imageNamed:@"gift_boat"];
@@ -93,14 +94,14 @@ static UIImage* gShadowFrameImage;
     if (self.mBoatView) {
         [self.mBoatView removeFromSuperview];
     }
-    self.mBoatView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds) * const_boat_size_rate, CGRectGetHeight(self.bounds))];
+    self.mBoatView = [[UIView alloc] initWithFrame:CGRectMake(0, -100, self.boatWidth, CGRectGetHeight(self.bounds))];
     [self addSubview:self.mBoatView];
     
     
     if (self.mBoatImageView) {
         [self.mBoatImageView removeFromSuperview];
     }
-    self.mBoatImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds) * const_boat_size_rate, CGRectGetHeight(self.bounds) * const_boat_size_rate)];
+    self.mBoatImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.mBoatView.bounds), CGRectGetHeight(self.bounds))];
     [self.mBoatView addSubview:self.mBoatImageView];
     
     
@@ -109,6 +110,14 @@ static UIImage* gShadowFrameImage;
     }
     self.mShadowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.mBoatImageView.bounds) * const_shadow_height_rate, CGRectGetWidth(self.mBoatImageView.bounds), CGRectGetHeight(self.mBoatImageView.bounds))];
     [self.mBoatView addSubview:self.mShadowImageView];
+}
+
+- (float)boatWidth {
+    return const_position_boat_width / [UIScreen mainScreen].scale;
+}
+
+- (float)boatHeightOffset {
+    return const_boat_height / [UIScreen mainScreen].scale;
 }
 
 - (void)setFrameWithContainer:(id)containerView {
@@ -138,7 +147,10 @@ static UIImage* gShadowFrameImage;
     [self.mBoatImageView setImage:gBoatFrameImage];
     [self.mShadowImageView setImage:gShadowFrameImage];
     
-    [self.mBoatView setFrame:CGRectMake(-CGRectGetWidth(self.bounds) * const_boat_size_rate, 0, CGRectGetWidth(self.mBoatView.bounds), CGRectGetHeight(self.mBoatView.bounds))];
+    [self.mBoatView setFrame:CGRectMake(-self.boatWidth, -self.boatHeightOffset, CGRectGetWidth(self.mBoatView.bounds), CGRectGetHeight(self.mBoatView.bounds))];
+    
+//    NSLog(@"self %@", [self description]);
+//    NSLog(@"%f %f", self.boatWidth, self.boatHeightOffset);
     
     ESWeakSelf
     [UIView animateWithDuration:10.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
@@ -182,7 +194,7 @@ static UIImage* gShadowFrameImage;
             ESStrongSelf
             CGRect frame;
             frame = self.mBoatView.frame;
-            frame.origin = CGPointMake(-CGRectGetWidth(self.mBoatView.bounds), 0);
+            frame.origin = CGPointMake(-CGRectGetWidth(self.mBoatView.bounds), -self.boatHeightOffset);
             [self.mBoatView setFrame:frame];
         } completion:^(BOOL finished) {
             ESStrongSelf

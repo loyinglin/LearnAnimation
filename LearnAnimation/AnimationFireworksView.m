@@ -22,6 +22,7 @@ typedef NS_ENUM(NSUInteger, LYAnimationFireworksColor) {
 
 @property (nonatomic , strong) NSTimer* mAnimationTimer;
 @property (nonatomic , strong) UIImageView* mImageView;
+@property (nonatomic , strong) UIImageView* mHeartImageView;
 @property (nonatomic , strong) NSMutableArray* mExplosionImageViewsArray;
 
 @property (nonatomic , weak) id<AnimationCallBackDelegate> delegate;
@@ -43,7 +44,8 @@ typedef NS_ENUM(NSUInteger, LYAnimationFireworksColor) {
 #define const_default_image_size 200.0
 
 #define const_default_fireworks_size_rate 0.5
-#define const_explosion_time 3.0
+#define const_explosion_time 4.0
+#define const_scale_time 2.0
 
 static NSArray<UIImage *>* gFireworksFramesArray;          //烟花帧图片
 static NSArray<UIImage *>* gHeartFramesArray;              //心形帧图片
@@ -92,18 +94,13 @@ static NSArray<UIImage *>* gExplosionFramesArray;          //爆炸帧图片
         CGImageRef cgimage = CGImageCreateWithImageInRect(sourceImage.CGImage, CGRectMake(i * sourceSize.width / imagesNum, 0, sourceSize.width / imagesNum, sourceSize.height));
         UIImage* tmp = [UIImage imageWithCGImage:cgimage];
         [imagesArr addObject:tmp];
-        if (i == imagesNum - 2) {
-            [imagesArr addObject:tmp];
-            [imagesArr addObject:tmp];
-            [imagesArr addObject:tmp];
-        }
     }
     gHeartFramesArray = imagesArr;
     
 }
 
 - (void)dealloc {
-//    NSLog(@"dealloc");
+    NSLog(@"dealloc %@", self);
 }
 
 - (instancetype)init {
@@ -161,7 +158,7 @@ static NSArray<UIImage *>* gExplosionFramesArray;          //爆炸帧图片
         
         // FINISH
         ESWeakSelf
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(const_explosion_time * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(const_explosion_time * 2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             ESStrongSelf
             for (UIImageView* imageView in self.mExplosionImageViewsArray) {
                 [imageView setImage:nil];
@@ -214,14 +211,42 @@ static NSArray<UIImage *>* gExplosionFramesArray;          //爆炸帧图片
 }
 
 - (void)playHeart {
-    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width * const_default_fireworks_size_rate, self.bounds.size.height * const_default_fireworks_size_rate)];
-    imageView.layer.position = CGPointMake(self.bounds.size.width * const_heart_point_x / const_default_image_size, self.bounds.size.height * const_heart_point_y / const_default_image_size);
+    self.mHeartImageView = [[UIImageView alloc] initWithFrame:
+                            CGRectMake(self.bounds.size.width * const_default_fireworks_size_rate / 2,
+                                       -self.bounds.size.height * const_default_fireworks_size_rate / 2,
+                                       self.bounds.size.width * const_default_fireworks_size_rate,
+                                       self.bounds.size.height * const_default_fireworks_size_rate)];
+    [self addSubview:self.mHeartImageView];
     
-    [imageView setAnimationImages:gHeartFramesArray];
-    imageView.animationDuration = const_explosion_time / 2;
-    imageView.animationRepeatCount = 2;
-    [imageView startAnimating];
-    [self addSubview:imageView];
+    self.mAnimationTimer = [NSTimer scheduledTimerWithTimeInterval:0.08 target:self selector:@selector(onPlayNextHeart) userInfo:nil repeats:YES];
+    self.mCurrentFarme = 0;
+}
+
+- (void)onPlayNextHeart {
+    if (self.mCurrentFarme >= gHeartFramesArray.count - 2) {
+        [self.mAnimationTimer invalidate];
+        ESWeakSelf
+        [UIView animateWithDuration:const_scale_time delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+            ESStrongSelf
+            self.mHeartImageView.transform = CGAffineTransformMakeScale(1.5, 1.5);
+        } completion:^(BOOL finished) {
+            UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(-CGRectGetWidth(self.mHeartImageView.bounds), 0, CGRectGetWidth(self.mHeartImageView.bounds), CGRectGetHeight(self.mHeartImageView.bounds))];
+            [self addSubview:imageView];
+            [imageView setImage:gHeartFramesArray[gHeartFramesArray.count - 2]];
+            [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+                CGRect frame = imageView.frame;
+                frame.origin.x = CGRectGetWidth(self.bounds);
+                imageView.frame = frame;
+
+            } completion:^(BOOL finished) {
+                [imageView setImage:nil];
+            }];
+        }];
+    }
+    else {
+        [self.mHeartImageView setImage:gHeartFramesArray[self.mCurrentFarme]];
+        ++self.mCurrentFarme;
+    }
 }
 
 

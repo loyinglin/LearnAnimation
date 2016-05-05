@@ -111,9 +111,9 @@
 - (IBAction)onKeyFrameAnimation:(id)sender {
     [[AnimationManager instance] startAnimationWithView:self.mAnimationView Type:LYAnimationFireworks];
     
-    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds) - 200, CGRectGetWidth(self.view.bounds), 200)];
-    [self.view addSubview:view];
-    [[AnimationManager instance] startAnimationWithView:view Type:LYAnimationBoat];
+//    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds) - 200, CGRectGetWidth(self.view.bounds), 200)];
+//    [self.view addSubview:view];
+//    [[AnimationManager instance] startAnimationWithView:view Type:LYAnimationBoat];
 }
 
 
