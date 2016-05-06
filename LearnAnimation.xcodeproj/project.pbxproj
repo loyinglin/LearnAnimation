@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD4831F31CDC83B1009F66D7 /* AnimationBoatView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4831ED1CDC83B1009F66D7 /* AnimationBoatView.m */; };
+		FD4831F41CDC83B1009F66D7 /* AnimationFireworksView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4831EF1CDC83B1009F66D7 /* AnimationFireworksView.m */; };
+		FD4831F51CDC83B1009F66D7 /* AnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4831F11CDC83B1009F66D7 /* AnimationManager.m */; };
 		FDF5DCFA1CD9A585000B43B8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF5DCF91CD9A585000B43B8 /* main.m */; };
 		FDF5DCFD1CD9A585000B43B8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF5DCFC1CD9A585000B43B8 /* AppDelegate.m */; };
 		FDF5DD001CD9A585000B43B8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF5DCFF1CD9A585000B43B8 /* ViewController.m */; };
@@ -19,9 +22,6 @@
 		FDF5DD221CD9C98D000B43B8 /* gift_boat.png in Resources */ = {isa = PBXBuildFile; fileRef = FDF5DD211CD9C98D000B43B8 /* gift_boat.png */; };
 		FDF5DD241CD9C992000B43B8 /* gift_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = FDF5DD231CD9C992000B43B8 /* gift_heart.png */; };
 		FDF5DD271CD9CAA9000B43B8 /* LYGLKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF5DD261CD9CAA9000B43B8 /* LYGLKViewController.m */; };
-		FDF5DD2E1CD9F2AE000B43B8 /* AnimationFireworksView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF5DD2D1CD9F2AE000B43B8 /* AnimationFireworksView.m */; };
-		FDF5DD341CDB241C000B43B8 /* AnimationBoatView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF5DD331CDB241C000B43B8 /* AnimationBoatView.m */; };
-		FDF5DD371CDB39FA000B43B8 /* AnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF5DD361CDB39FA000B43B8 /* AnimationManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +35,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FD4831EC1CDC83B1009F66D7 /* AnimationBoatView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationBoatView.h; sourceTree = "<group>"; };
+		FD4831ED1CDC83B1009F66D7 /* AnimationBoatView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationBoatView.m; sourceTree = "<group>"; };
+		FD4831EE1CDC83B1009F66D7 /* AnimationFireworksView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationFireworksView.h; sourceTree = "<group>"; };
+		FD4831EF1CDC83B1009F66D7 /* AnimationFireworksView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationFireworksView.m; sourceTree = "<group>"; };
+		FD4831F01CDC83B1009F66D7 /* AnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationManager.h; sourceTree = "<group>"; };
+		FD4831F11CDC83B1009F66D7 /* AnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationManager.m; sourceTree = "<group>"; };
+		FD4831F21CDC83B1009F66D7 /* AnimationProtocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationProtocal.h; sourceTree = "<group>"; };
 		FDF5DCF51CD9A585000B43B8 /* LearnAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDF5DCF91CD9A585000B43B8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FDF5DCFB1CD9A585000B43B8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -54,13 +61,6 @@
 		FDF5DD231CD9C992000B43B8 /* gift_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gift_heart.png; sourceTree = "<group>"; };
 		FDF5DD251CD9CAA9000B43B8 /* LYGLKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYGLKViewController.h; sourceTree = "<group>"; };
 		FDF5DD261CD9CAA9000B43B8 /* LYGLKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYGLKViewController.m; sourceTree = "<group>"; };
-		FDF5DD2C1CD9F2AE000B43B8 /* AnimationFireworksView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationFireworksView.h; sourceTree = "<group>"; };
-		FDF5DD2D1CD9F2AE000B43B8 /* AnimationFireworksView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationFireworksView.m; sourceTree = "<group>"; };
-		FDF5DD321CDB241C000B43B8 /* AnimationBoatView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationBoatView.h; sourceTree = "<group>"; };
-		FDF5DD331CDB241C000B43B8 /* AnimationBoatView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationBoatView.m; sourceTree = "<group>"; };
-		FDF5DD351CDB39FA000B43B8 /* AnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationManager.h; sourceTree = "<group>"; };
-		FDF5DD361CDB39FA000B43B8 /* AnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationManager.m; sourceTree = "<group>"; };
-		FDF5DD381CDB4CCE000B43B8 /* AnimationProtocal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationProtocal.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +81,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD4831EB1CDC83B1009F66D7 /* animation */ = {
+			isa = PBXGroup;
+			children = (
+				FD4831EC1CDC83B1009F66D7 /* AnimationBoatView.h */,
+				FD4831ED1CDC83B1009F66D7 /* AnimationBoatView.m */,
+				FD4831EE1CDC83B1009F66D7 /* AnimationFireworksView.h */,
+				FD4831EF1CDC83B1009F66D7 /* AnimationFireworksView.m */,
+				FD4831F01CDC83B1009F66D7 /* AnimationManager.h */,
+				FD4831F11CDC83B1009F66D7 /* AnimationManager.m */,
+				FD4831F21CDC83B1009F66D7 /* AnimationProtocal.h */,
+			);
+			path = animation;
+			sourceTree = "<group>";
+		};
 		FDF5DCEC1CD9A585000B43B8 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +116,7 @@
 		FDF5DCF71CD9A585000B43B8 /* LearnAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				FD4831EB1CDC83B1009F66D7 /* animation */,
 				FDF5DD231CD9C992000B43B8 /* gift_heart.png */,
 				FDF5DD211CD9C98D000B43B8 /* gift_boat.png */,
 				FDF5DD1D1CD9A60F000B43B8 /* gift_fireworks_1.png */,
@@ -110,13 +125,6 @@
 				FDF5DCFC1CD9A585000B43B8 /* AppDelegate.m */,
 				FDF5DCFE1CD9A585000B43B8 /* ViewController.h */,
 				FDF5DCFF1CD9A585000B43B8 /* ViewController.m */,
-				FDF5DD381CDB4CCE000B43B8 /* AnimationProtocal.h */,
-				FDF5DD351CDB39FA000B43B8 /* AnimationManager.h */,
-				FDF5DD361CDB39FA000B43B8 /* AnimationManager.m */,
-				FDF5DD2C1CD9F2AE000B43B8 /* AnimationFireworksView.h */,
-				FDF5DD2D1CD9F2AE000B43B8 /* AnimationFireworksView.m */,
-				FDF5DD321CDB241C000B43B8 /* AnimationBoatView.h */,
-				FDF5DD331CDB241C000B43B8 /* AnimationBoatView.m */,
 				FDF5DD251CD9CAA9000B43B8 /* LYGLKViewController.h */,
 				FDF5DD261CD9CAA9000B43B8 /* LYGLKViewController.m */,
 				FDF5DD011CD9A585000B43B8 /* Main.storyboard */,
@@ -249,13 +257,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD4831F41CDC83B1009F66D7 /* AnimationFireworksView.m in Sources */,
 				FDF5DD001CD9A585000B43B8 /* ViewController.m in Sources */,
-				FDF5DD341CDB241C000B43B8 /* AnimationBoatView.m in Sources */,
-				FDF5DD2E1CD9F2AE000B43B8 /* AnimationFireworksView.m in Sources */,
 				FDF5DCFD1CD9A585000B43B8 /* AppDelegate.m in Sources */,
-				FDF5DD371CDB39FA000B43B8 /* AnimationManager.m in Sources */,
 				FDF5DD271CD9CAA9000B43B8 /* LYGLKViewController.m in Sources */,
+				FD4831F51CDC83B1009F66D7 /* AnimationManager.m in Sources */,
 				FDF5DCFA1CD9A585000B43B8 /* main.m in Sources */,
+				FD4831F31CDC83B1009F66D7 /* AnimationBoatView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
